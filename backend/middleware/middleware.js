@@ -1,5 +1,5 @@
 const Jwt =require('jsonwebtoken');
-const jwtKey ='myshoppylogin';
+const jwtKey =process.env.JWT_KEY;
 
 
 function verifyToken(req,res,next){
