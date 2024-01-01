@@ -255,7 +255,7 @@ const Cart = () => {
   }
 
 
-  return (  <> {loading ? <GridLoader   color="#000" size={21}  cssOverride={{left: '49%',position: 'absolute',top: '40%' }} />: <><div className={styles.cartPage}>
+  return (  <> <div className={styles.cartPage}>
         <div className={styles.cartDiv}>
           <h1>My Cart</h1>
           <div className={styles.headings}>
@@ -277,7 +277,8 @@ const Cart = () => {
           </div>
           <div className={styles.itemsDiv}>
             <ul>
-              {cartProducts.length>0?cartProducts.map((item, i) => (
+              {loading ? <GridLoader   color="#000" size={21}  cssOverride={{left: '49%',position: 'absolute',top: '40%' }} />:
+              cartProducts.length>0?cartProducts.map((item, i) => (
                 <li className={styles.listItems} key={i}>
                   <div className={styles.imgDiv}>
                     <img
@@ -323,7 +324,8 @@ const Cart = () => {
                     </div>
                   </div>
                 </li>
-              )):<h1>Cart is Empty !!</h1>}
+              )):<h1>Cart is Empty !!</h1>
+              }
             </ul>
           </div>
           <div className={styles.priceInfo}>
@@ -373,7 +375,7 @@ const Cart = () => {
 
       {carousel ? <Carousel /> : null}
     </>}
-  </>);
+  );
 };
 
 export default Cart;
