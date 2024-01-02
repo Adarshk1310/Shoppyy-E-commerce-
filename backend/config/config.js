@@ -5,7 +5,9 @@ dotenv.config();
 
 const uri =process.env.MONGODB_SECRET;
 
-mongoose.connect(uri);
+mongoose.connect(uri,{
+    serverSelectionTimeoutMS: 5000
+});
 
 const db =mongoose.connection;
 
